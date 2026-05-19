@@ -1,7 +1,13 @@
-instance/
+# Archivos compilados de Python
 pycache/
 *.pyc
-.env
+
+# Base de datos local (SQLite / Instancias de Flask)
+instance/
+*.db
+*.sqlite3
+
+# Entornos virtuales
 venv/
 .venv/
 env/
