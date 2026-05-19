@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Editar Consulta
+{% endblock %}
+
+{% block page_title %}
+Editar Consulta Médica
+{% endblock %}
+
+{% block content %}
+
+<div class="card shadow border-0">
+
+    <div class="card-body">
+
+        <h2 class="fw-bold mb-4">
+
+            Editar Consulta
+
+        </h2>
+
+        <form
+            method="POST"
+            action="/consultas/update/{{ consulta.id_consulta }}"
+        >
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Fecha
+                    </label>
+
+                    <input
+                        type="date"
+                        name="fecha"
+                        class="form-control"
+                        value="{{ consulta.fecha }}"
+                        required
+                    >
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Paciente
+                    </label>
+
+                    <select
+                        name="id_paciente"
+                        class="form-select"
+                    >
+
+                        {% for paciente in pacientes %}
+
+                        <option
+                            value="{{ paciente.id_paciente }}"
+                            {% if consulta.id_paciente == paciente.id_paciente %}
+                            selected
+                            {% endif %}
+                        >
+
+                            {{ paciente.nombre }}
+
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Médico
+                    </label>
+
+                    <select
+                        name="id_medico"
+                        class="form-select"
+                    >
+
+                        {% for medico in medicos %}
+
+                        <option
+                            value="{{ medico.id_medico }}"
+                            {% if consulta.id_medico == medico.id_medico %}
+                            selected
+                            {% endif %}
+                        >
+
+                            {{ medico.nombre }}
+
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-12 mb-3">
+
+                    <label>
+                        Diagnóstico
+                    </label>
+
+                    <textarea
+                        name="diagnostico"
+                        rows="3"
+                        class="form-control"
+                    >{{ consulta.diagnostico }}</textarea>
+
+                </div>
+
+                <div class="col-md-12 mb-3">
+
+                    <label>
+                        Tratamiento
+                    </label>
+
+                    <textarea
+                        name="tratamiento"
+                        rows="3"
+                        class="form-control"
+                    >{{ consulta.tratamiento }}</textarea>
+
+                </div>
+
+                <div class="col-md-12 mb-3">
+
+                    <label>
+                        Observaciones
+                    </label>
+
+                    <textarea
+                        name="observaciones"
+                        rows="3"
+                        class="form-control"
+                    >{{ consulta.observaciones }}</textarea>
+
+                </div>
+
+            </div>
+
+            <button
+                class="btn btn-warning text-white"
+            >
+
+                <i class="bi bi-pencil-fill"></i>
+
+                Actualizar Consulta
+
+            </button>
+
+            <a
+                href="/consultas"
+                class="btn btn-secondary"
+            >
+
+                Volver
+
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

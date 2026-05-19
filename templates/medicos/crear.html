@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Nuevo Médico
+{% endblock %}
+
+{% block page_title %}
+Registrar Médico
+{% endblock %}
+
+{% block content %}
+
+<div class="card">
+
+    <div class="card-body">
+
+        <h3 class="fw-bold mb-4">
+
+            Registrar Médico
+
+        </h3>
+
+        <form method="POST">
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Nombre
+                    </label>
+
+                    <input
+                        type="text"
+                        name="nombre"
+                        class="form-control"
+                        required
+                    >
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Especialidad
+                    </label>
+
+                    <input
+                        type="text"
+                        name="especialidad"
+                        class="form-control"
+                        required
+                    >
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Teléfono
+                    </label>
+
+                    <input
+                        type="text"
+                        name="telefono"
+                        class="form-control"
+                        required
+                    >
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Correo
+                    </label>
+
+                    <input
+                        type="email"
+                        name="correo"
+                        class="form-control"
+                        required
+                    >
+
+                </div>
+
+                <div class="col-md-12 mb-3">
+
+                    <label>
+                        Horario
+                    </label>
+
+                    <input
+                        type="text"
+                        name="horario"
+                        class="form-control"
+                        placeholder="Ej: Lunes a Viernes 08:00 - 16:00"
+                    >
+
+                </div>
+
+            </div>
+
+            <button
+                class="btn btn-success"
+            >
+
+                <i class="bi bi-save-fill"></i>
+
+                Guardar Médico
+
+            </button>
+
+            <a
+                href="/medicos"
+                class="btn btn-secondary"
+            >
+
+                Volver
+
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Historial Médico
+{% endblock %}
+
+{% block page_title %}
+Historial Médico
+{% endblock %}
+
+{% block content %}
+
+<div class="card">
+
+    <div class="card-body">
+
+        <h2 class="fw-bold mb-4">
+
+            Historial Médico
+
+        </h2>
+
+        <div class="alert alert-info">
+
+            <strong>Paciente:</strong>
+            {{ paciente.nombre }}
+
+        </div>
+
+        <table
+            class="table table-bordered"
+        >
+
+            <thead class="table-dark">
+
+                <tr>
+
+                    <th>Fecha</th>
+                    <th>Diagnóstico</th>
+                    <th>Tratamiento</th>
+                    <th>Médico</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for consulta in consultas %}
+
+                <tr>
+
+                    <td>
+                        {{ consulta.fecha }}
+                    </td>
+
+                    <td>
+                        {{ consulta.diagnostico }}
+                    </td>
+
+                    <td>
+                        {{ consulta.tratamiento }}
+                    </td>
+
+                    <td>
+                        {{ consulta.medico.nombre }}
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

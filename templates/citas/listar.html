@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Citas Médicas
+{% endblock %}
+
+{% block page_title %}
+Agenda de Citas
+{% endblock %}
+
+{% block content %}
+
+<div class="card shadow-lg border-0">
+
+    <div class="card-body">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+
+                <h2 class="fw-bold">
+
+                    Agenda Médica
+
+                </h2>
+
+                <p class="text-muted">
+
+                    Administración y control de citas.
+
+                </p>
+
+            </div>
+
+            <a
+                href="/citas/crear"
+                class="btn btn-success"
+            >
+
+                <i class="bi bi-calendar-plus-fill"></i>
+
+                Nueva Cita
+
+            </a>
+
+        </div>
+
+        <!-- TABLA -->
+
+        <div class="table-responsive">
+
+            <table
+                class="table table-hover datatable"
+            >
+
+                <thead class="table-dark">
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Paciente</th>
+                        <th>Médico</th>
+                        <th>Motivo</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for cita in citas %}
+
+                    <tr>
+
+                        <td>
+                            {{ cita.id_cita }}
+                        </td>
+
+                        <td>
+                            {{ cita.fecha }}
+                        </td>
+
+                        <td>
+                            {{ cita.hora }}
+                        </td>
+
+                        <td>
+                            {{ cita.paciente.nombre }}
+                        </td>
+
+                        <td>
+                            {{ cita.medico.nombre }}
+                        </td>
+
+                        <td>
+                            {{ cita.motivo }}
+                        </td>
+
+                        <td>
+
+                            {% if cita.estado == 'Pendiente' %}
+
+                            <span class="badge bg-warning text-dark">
+
+                                Pendiente
+
+                            </span>
+
+                            {% elif cita.estado == 'Atendida' %}
+
+                            <span class="badge bg-success">
+
+                                Atendida
+
+                            </span>
+
+                            {% else %}
+
+                            <span class="badge bg-danger">
+
+                                Cancelada
+
+                            </span>
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+
+                            <a
+                                href="/citas/editar/{{ cita.id_cita }}"
+                                class="btn btn-warning btn-sm"
+                            >
+
+                                <i class="bi bi-pencil-fill"></i>
+
+                            </a>
+
+                            <a
+                                href="/citas/delete/{{ cita.id_cita }}"
+                                class="btn btn-danger btn-sm"
+                                onclick="return confirm('¿Eliminar cita?')"
+                            >
+
+                                <i class="bi bi-trash-fill"></i>
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

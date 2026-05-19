@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Nuevo Paciente
+{% endblock %}
+
+{% block page_title %}
+Registrar Paciente
+{% endblock %}
+
+{% block content %}
+
+<div class="card">
+
+    <div class="card-body">
+
+        <h3 class="fw-bold mb-4">
+
+            Nuevo Paciente
+
+        </h3>
+
+        <form
+            method="POST"
+        >
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Nombre
+                    </label>
+
+                    <input
+                        type="text"
+                        name="nombre"
+                        class="form-control"
+                        required
+                    >
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Edad
+                    </label>
+
+                    <input
+                        type="number"
+                        name="edad"
+                        class="form-control"
+                        required
+                    >
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Dirección
+                    </label>
+
+                    <input
+                        type="text"
+                        name="direccion"
+                        class="form-control"
+                        required
+                    >
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Teléfono
+                    </label>
+
+                    <input
+                        type="text"
+                        name="telefono"
+                        class="form-control"
+                        required
+                    >
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Género
+                    </label>
+
+                    <select
+                        name="genero"
+                        class="form-select"
+                        required
+                    >
+
+                        <option value="">
+                            Seleccionar
+                        </option>
+
+                        <option>
+                            Masculino
+                        </option>
+
+                        <option>
+                            Femenino
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Fecha Registro
+                    </label>
+
+                    <input
+                        type="date"
+                        name="fecha_registro"
+                        class="form-control"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+            <button
+                class="btn btn-primary"
+            >
+
+                <i class="bi bi-save-fill"></i>
+
+                Guardar Paciente
+
+            </button>
+
+            <a
+                href="/pacientes"
+                class="btn btn-secondary"
+            >
+
+                Volver
+
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

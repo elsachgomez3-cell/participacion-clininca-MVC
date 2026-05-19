@@ -1,0 +1,427 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block page_title %}
+Panel Administrativo
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <!-- HERO -->
+
+    <div class="card mb-4">
+
+        <div class="card-body">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-7">
+
+                    <h1 class="fw-bold mb-3">
+
+                        Bienvenido al Sistema Clínico
+
+                    </h1>
+
+                    <p class="text-muted fs-5">
+
+                        Administra pacientes, médicos, consultas y citas
+                        médicas desde un solo panel profesional.
+
+                    </p>
+
+                    <div class="mt-4">
+
+                        <a href="/pacientes/crear"
+                           class="btn btn-primary me-2">
+
+                            <i class="bi bi-person-plus-fill"></i>
+                            Nuevo Paciente
+
+                        </a>
+
+                        <a href="/consultas/crear"
+                           class="btn btn-success">
+
+                            <i class="bi bi-clipboard2-pulse-fill"></i>
+                            Nueva Consulta
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-5 text-center">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1631815588090-d1bcbe9a8543?q=80&w=1200&auto=format&fit=crop"
+                        class="img-fluid rounded-4 shadow"
+                        style="max-height:350px;"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ESTADISTICAS -->
+
+    <div class="row g-4 mb-4">
+
+        <!-- PACIENTES -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="stat-card bg-card-1 shadow">
+
+                <h5>
+                    Pacientes
+                </h5>
+
+                <h2 class="fw-bold">
+                    {{ total_pacientes }}
+                </h2>
+
+                <p>
+                    Registrados
+                </p>
+
+                <i class="bi bi-people-fill"></i>
+
+            </div>
+
+        </div>
+
+        <!-- MEDICOS -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="stat-card bg-card-2 shadow">
+
+                <h5>
+                    Médicos
+                </h5>
+
+                <h2 class="fw-bold">
+                    {{ total_medicos }}
+                </h2>
+
+                <p>
+                    Especialistas
+                </p>
+
+                <i class="bi bi-person-badge-fill"></i>
+
+            </div>
+
+        </div>
+
+        <!-- CONSULTAS -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="stat-card bg-card-3 shadow">
+
+                <h5>
+                    Consultas
+                </h5>
+
+                <h2 class="fw-bold">
+                    {{ total_consultas }}
+                </h2>
+
+                <p>
+                    Historial clínico
+                </p>
+
+                <i class="bi bi-clipboard2-pulse-fill"></i>
+
+            </div>
+
+        </div>
+
+        <!-- CITAS -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="stat-card bg-card-4 shadow">
+
+                <h5>
+                    Citas
+                </h5>
+
+                <h2 class="fw-bold">
+                    {{ total_citas }}
+                </h2>
+
+                <p>
+                    Agendadas
+                </p>
+
+                <i class="bi bi-calendar-check-fill"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ACCESOS RAPIDOS -->
+
+    <div class="row g-4">
+
+        <!-- PACIENTES -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card h-100">
+
+                <div class="card-body text-center">
+
+                    <div class="mb-3">
+
+                        <i
+                            class="bi bi-people-fill"
+                            style="font-size:60px;color:#0d6efd;"
+                        ></i>
+
+                    </div>
+                    <h4 class="fw-bold">
+
+                        Pacientes
+
+                    </h4>
+
+                    <p class="text-muted">
+
+                        Registrar y administrar pacientes.
+
+                    </p>
+
+                    <a href="/pacientes"
+                       class="btn btn-primary w-100">
+
+                        Ver Pacientes
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- MEDICOS -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card h-100">
+
+                <div class="card-body text-center">
+
+                    <div class="mb-3">
+
+                        <i
+                            class="bi bi-person-badge-fill"
+                            style="font-size:60px;color:#198754;"
+                        ></i>
+
+                    </div>
+
+                    <h4 class="fw-bold">
+
+                        Médicos
+
+                    </h4>
+
+                    <p class="text-muted">
+
+                        Gestionar especialistas médicos.
+
+                    </p>
+
+                    <a href="/medicos"
+                       class="btn btn-success w-100">
+
+                        Ver Médicos
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CONSULTAS -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card h-100">
+
+                <div class="card-body text-center">
+
+                    <div class="mb-3">
+
+                        <i
+                            class="bi bi-clipboard2-pulse-fill"
+                            style="font-size:60px;color:#fd7e14;"
+                        ></i>
+
+                    </div>
+
+                    <h4 class="fw-bold">
+
+                        Consultas
+
+                    </h4>
+
+                    <p class="text-muted">
+
+                        Historial y consultas médicas.
+
+                    </p>
+
+                    <a href="/consultas"
+                       class="btn btn-warning w-100 text-white">
+
+                        Ver Consultas
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CITAS -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card h-100">
+
+                <div class="card-body text-center">
+
+                    <div class="mb-3">
+
+                        <i
+                            class="bi bi-calendar-check-fill"
+                            style="font-size:60px;color:#dc3545;"
+                        ></i>
+
+                    </div>
+
+                    <h4 class="fw-bold">
+
+                        Citas
+
+                    </h4>
+
+                    <p class="text-muted">
+
+                        Agenda y programación médica.
+
+                    </p>
+
+                    <a href="/citas"
+                       class="btn btn-danger w-100">
+
+                        Ver Citas
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TABLA RAPIDA -->
+
+    <div class="card mt-5">
+
+        <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <h4 class="fw-bold">
+
+                    Acciones rápidas
+
+                </h4>
+
+                <a href="/consultas/reporte/pdf"
+                   class="btn btn-danger">
+
+                    <i class="bi bi-file-earmark-pdf-fill"></i>
+
+                    Exportar PDF
+
+                </a>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <a href="/pacientes/crear"
+                       class="btn btn-outline-primary w-100 p-4">
+
+                        <i class="bi bi-person-plus-fill"></i>
+
+                        Registrar Paciente
+
+                    </a>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <a href="/medicos/crear"
+                       class="btn btn-outline-success w-100 p-4">
+                       <i class="bi bi-person-badge-fill"></i>
+
+                        Registrar Médico
+
+                    </a>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <a href="/citas/crear"
+                       class="btn btn-outline-danger w-100 p-4">
+
+                        <i class="bi bi-calendar-plus-fill"></i>
+
+                        Nueva Cita
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

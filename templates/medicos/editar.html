@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Editar Médico
+{% endblock %}
+
+{% block page_title %}
+Editar Médico
+{% endblock %}
+
+{% block content %}
+
+<div class="card">
+
+    <div class="card-body">
+
+        <h3 class="fw-bold mb-4">
+
+            Editar Médico
+
+        </h3>
+
+        <form
+            method="POST"
+            action="/medicos/update/{{ medico.id_medico }}"
+        >
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Nombre
+                    </label>
+
+                    <input
+                        type="text"
+                        name="nombre"
+                        class="form-control"
+                        value="{{ medico.nombre }}"
+                        required
+                    >
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Especialidad
+                    </label>
+
+                    <input
+                        type="text"
+                        name="especialidad"
+                        class="form-control"
+                        value="{{ medico.especialidad }}"
+                        required
+                    >
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Teléfono
+                    </label>
+
+                    <input
+                        type="text"
+                        name="telefono"
+                        class="form-control"
+                        value="{{ medico.telefono }}"
+                        required
+                    >
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>
+                        Correo
+                    </label>
+
+                    <input
+                        type="email"
+                        name="correo"
+                        class="form-control"
+                        value="{{ medico.correo }}"
+                        required
+                    >
+
+                </div>
+
+                <div class="col-md-12 mb-3">
+
+                    <label>
+                        Horario
+                    </label>
+
+                    <input
+                        type="text"
+                        name="horario"
+                        class="form-control"
+                        value="{{ medico.horario }}"
+                    >
+
+                </div>
+
+            </div>
+
+            <button
+                class="btn btn-warning text-white"
+            >
+
+                <i class="bi bi-pencil-fill"></i>
+
+                Actualizar Médico
+
+            </button>
+
+            <a
+                href="/medicos"
+                class="btn btn-secondary"
+            >
+
+                Volver
+
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
